@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RentACar.BusinessLayer.Abstract;
+using RentACar.BusinessLayer.Concrete;
+using RentACar.DataAccessLayer.Abstract;
 using RentACar.DataAccessLayer.Concrete;
+using RentACar.DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +29,9 @@ namespace RentACar.PresentetionLayer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Context>();
+
+            services.AddScoped<IAboutUsDal, EfAboutUsDal>();
+            services.AddScoped<IAboutUsService,AboutUsManager>();
             services.AddControllersWithViews();
         }
 

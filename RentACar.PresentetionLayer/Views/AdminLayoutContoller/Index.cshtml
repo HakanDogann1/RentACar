@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+
+@await Html.PartialAsync("Head.cshtml")
+
+<body>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed">
+        <!-- Sidebar Start -->
+     @await Html.PartialAsync("Sidebar.cshtml")
+        <!--  Sidebar End -->
+        <!--  Main wrapper -->
+        <div class="body-wrapper">
+            <!--  Header Start -->
+            @await Html.PartialAsync("Header.cshtml")
+            <!--  Header End -->
+          @RenderBody()
+        </div>
+    </div>
+    @await Html.PartialAsync("Script.cshtml")
+</body>
+
+</html>
