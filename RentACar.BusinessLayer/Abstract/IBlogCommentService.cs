@@ -9,5 +9,6 @@ namespace RentACar.BusinessLayer.Abstract
 {
 	public interface IBlogCommentService : IGenericService<BlogComment>
 	{
-	}
+        List<BlogComment> TGetBlogCommentWithBlog();
+    }
 }

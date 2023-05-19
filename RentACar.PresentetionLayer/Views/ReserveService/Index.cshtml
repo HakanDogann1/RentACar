@@ -1,0 +1,52 @@
+﻿@model List<RentACar.EntityLayer.Concrete.ReserveService>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayoutContoller/Index.cshtml";
+}
+
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+    <thead class="text-dark fs-12">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Başlık
+            </th>
+            <th>
+               İkon
+            </th>
+            <th>
+                Sil
+            </th>
+            <th>
+                Güncelle
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">@item.ReserveServiceID</h6></td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.ReserveServiceTitle</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="mb-0 fw-normal">@item.ReserveServiceIcon</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <a href="/ReserveService/DeleteReserveService/@item.ReserveServiceID" class="btn btn-outline-danger">Sil</a>
+                </td>
+                <td class="border-bottom-0">
+                    <a href="/ReserveService/UpdateReserveService/@item.ReserveServiceID" class="btn btn-outline-warning">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/ReserveService/AddReserveService/" class="btn btn-outline-primary">Ekle</a>

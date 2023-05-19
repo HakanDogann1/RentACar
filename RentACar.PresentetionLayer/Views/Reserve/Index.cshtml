@@ -1,0 +1,67 @@
+﻿@model List<RentACar.EntityLayer.Concrete.Reserve>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayoutContoller/Index.cshtml";
+}
+
+
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+    <thead class="text-dark fs-12">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Alınacak Konum
+            </th>
+            <th>
+                Teslim Edilecek Konum
+            </th>
+            <th>
+                Alınacak Tarih
+            </th>
+            <th>
+                Teslim Edilecek Tarih
+            </th>
+            <th>
+                Alınacak Saat
+            </th>
+            <th>
+                Sil
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">@item.ReserveID</h6></td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.PıckUpLocation</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="mb-0 fw-normal">@item.DropOffLocation</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="mb-0 fw-normal">@item.PıckUpDate</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">@item.DropOfDate</p>
+                </td>
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">@item.PickUpTime</p>
+                </td>
+                <td>
+                    <a href="/Reserve/UpdateReserve/@item.ReserveID" class="btn btn-outline-danger">Sil</a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+
+</table>
+

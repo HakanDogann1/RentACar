@@ -1,0 +1,58 @@
+﻿@model RentACar.EntityLayer.Concrete.Blog
+@{
+    ViewData["Title"] = "UpdateBlog";
+    Layout = "~/Views/AdminLayoutContoller/Index.cshtml";
+}
+
+<br />
+<br />
+<br />
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" asp-for="BlogID"/>
+            <div class="mb-3">
+                <label class="form-label">Başlık</label>
+                <input type="text" class="form-control" asp-for="BlogTitle">
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">İçerik</label>
+                <textarea class="form-control" asp-for="BlogDescription"></textarea>
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">İçerik Başlığı 1</label>
+                <input type="text" class="form-control" asp-for="BlogContentTitle1">
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">İçerik Detay 1</label>
+                <textarea class="form-control" asp-for="BlogContentDescription1"></textarea>
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">İçerik Başlığı 2</label>
+                <input type="text" class="form-control" asp-for="BlogContentTitle2">
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">İçerik Detayı 2</label>
+                <textarea class="form-control" asp-for="BlogContentDescription2"></textarea>
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Resim Url</label>
+                <input type="text" class="form-control" asp-for="BlogImageUrl">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tarih</label>
+                <input type="text" class="form-control" asp-for="BlogDate">
+
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+

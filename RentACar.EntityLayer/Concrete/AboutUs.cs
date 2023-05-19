@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace RentACar.EntityLayer.Concrete
 {
-	public class AboutUs
-	{
+    public class AboutUs
+    {
         public int AboutUsID { get; set; }
         public string AboutUsTitle { get; set; }
         public string AboutUsDescription { get; set; }

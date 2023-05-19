@@ -1,0 +1,68 @@
+﻿@model List<RentACar.EntityLayer.Concrete.Reference>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayoutContoller/Index.cshtml";
+}
+
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+    <thead class="text-dark fs-12">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Ad Soyad
+            </th>
+            <th>
+                Meslek
+            </th>
+            <th>
+                Resim Url
+            </th>
+            <th>
+                Mesaj
+            </th>
+            <th>
+                Sil
+            </th>
+            <th>
+                Güncelle
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">@item.ReferenceID</h6></td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.NameSurname</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="mb-0 fw-normal">@item.Job</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="mb-0 fw-normal">@item.ImageUrl</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">@item.Message</p>
+                </td>
+                <td>
+                    <a href="/Reference/UpdateReference/@item.ReferenceID" class="btn btn-outline-danger">Sil</a>
+                </td>
+                <td>
+                    <a href="/Reference/UpdateReference/@item.ReferenceID" class="btn btn-outline-warning">Güncelle</a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+
+</table>
+<br />
+<a href="/Reference/AddReference/" class="btn btn-outline-primary">Ekle</a>
+

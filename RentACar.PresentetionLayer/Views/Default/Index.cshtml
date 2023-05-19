@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("_HeadPartial")
+<body>
+
+    @await Component.InvokeAsync("_NavbarPartial")
+    <!-- END nav -->
+
+   @await Component.InvokeAsync("_HeaderPartial")
+
+    <section class="ftco-section ftco-no-pt bg-light">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-md-12	featured-top">
+                    <div class="row no-gutters">
+                        @await Html.PartialAsync("~/Views/Default/ReservePartial.cshtml")
+                        @await Component.InvokeAsync("_ReserveServicePartial")
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    @await Component.InvokeAsync("_FeaturePartial")
+
+   @await Component.InvokeAsync("_AboutUsPartial")
+
+   @await Component.InvokeAsync("_ServicePartial")
+
+   @await Component.InvokeAsync("_ContactMePartial")
+
+
+   @await Component.InvokeAsync("_TestimonialPartial")
+
+    @await Component.InvokeAsync("_BlogPartial")
+    @await Component.InvokeAsync("_StatisticPartial")
+
+   @await Component.InvokeAsync("_FooterPartial")
+
+
+    @await Component.InvokeAsync("_ScriptPartial")
+
+</body>
+</html>

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using RentACar.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace RentACar.DataAccessLayer.Concrete
 {
-	public class Context:DbContext
+	public class Context:IdentityDbContext<AppUser,AppRole,int>
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Server=DESKTOP-PL08POB\\SQLEXPRESS;initial catalog=DbCarRental;integrated security=true;");
+			optionsBuilder.UseSqlServer("Server=DESKTOP-NOMRM5V\\SQLEXPRESS;initial catalog=DbCarRental;integrated security=true;");
 		}
 
         public DbSet<AboutUs> Abouts { get; set; }

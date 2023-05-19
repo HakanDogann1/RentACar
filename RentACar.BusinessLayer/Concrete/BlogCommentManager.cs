@@ -23,7 +23,12 @@ namespace RentACar.BusinessLayer.Concrete
 			_blogCommentDal.Delete(t);
 		}
 
-		public BlogComment TGetById(int id)
+        public List<BlogComment> TGetBlogCommentWithBlog()
+        {
+           return _blogCommentDal.GetBlogCommentWithBlog();
+        }
+
+        public BlogComment TGetById(int id)
 		{
 			return _blogCommentDal.GetById(id);
 		}

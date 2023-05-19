@@ -1,0 +1,93 @@
+﻿@model List<RentACar.EntityLayer.Concrete.Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayoutContoller/Index.cshtml";
+}
+
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+    <thead class="text-dark fs-12">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Başlık
+            </th>
+            <th>
+                İçerik
+            </th>
+            <th>
+               Detay Başlık 1
+            </th>
+            <th>
+                Detay Başlık 1
+            </th>
+             <th>
+               Detay İçerik 1
+            </th>
+            <th>
+                Detay İçerik 2
+            </th>
+            <th>
+                Tarih
+            </th>
+            <th>
+                Resim Url
+            </th>
+            <th>
+                Sil
+            </th>
+            <th>
+                Güncelle
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">@item.BlogID</h6></td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.BlogTitle</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">@item.BlogDescription</p>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.BlogContentTitle1</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.BlogContentTitle2</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">@item.BlogContentDescription1</p>
+                </td>
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">@item.BlogContentDescription2</p>
+                </td>
+                <td class="border-bottom-0">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-primary rounded-3 fw-semibold">@item.BlogDate</span>
+                    </div>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.BlogImageUrl</h6>
+                </td>
+                <td>
+                    <a href="/Blog/DeleteBlog/@item.BlogID" class="btn btn-outline-danger">Sil</a>
+                </td>
+                <td>
+                    <a href="/Blog/UpdateBlog/@item.BlogID" class="btn btn-outline-warning">Güncelle</a>
+                </td>
+            </tr>
+        }
+
+       
+    </tbody>
+    
+</table>
+<br />
+<a href="/Blog/AddBlog/" class="btn btn-dark">Ekle</a>

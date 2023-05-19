@@ -9,5 +9,6 @@ namespace RentACar.DataAccessLayer.Abstract
 {
 	public interface IBlogCommentDal:IGenericDal<BlogComment>
 	{
+		List<BlogComment> GetBlogCommentWithBlog();
 	}
 }

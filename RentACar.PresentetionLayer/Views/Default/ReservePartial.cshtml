@@ -1,0 +1,32 @@
+﻿@model RentACar.EntityLayer.Concrete.Reserve
+
+<div class="col-md-4 d-flex align-items-center">
+    <form asp-action="ReservePartial" asp-controller="Default" class="request-form ftco-animate bg-primary">
+        <h2>Seyehatini yap</h2>
+        <div class="form-group">
+            <label  class="label">Alınacak Konumu</label>
+            <input type="text" class="form-control" placeholder="Ankara, Akyurt,Havalimanı vb." asp-for="PıckUpLocation">
+        </div>
+        <div class="form-group">
+            <label class="label">Teslim Edilecek Konum</label>
+            <input type="text" class="form-control" placeholder="Ankara, Akyurt,Havalimanı vb." asp-for="DropOffLocation">
+        </div>
+        <div class="d-flex">
+            <div class="form-group mr-2">
+                <label class="label">Alınacak Tarih</label>
+                <input type="date" class="form-control"  placeholder="Date" asp-for="PıckUpDate">
+            </div>
+            <div class="form-group ml-2">
+                <label  class="label">Teslim Tarihi</label>
+                <input type="date" class="form-control" placeholder="Date" asp-for="DropOfDate">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="label">Teslim Edilecek Saat</label>
+            <input type="time" class="form-control" placeholder="Time" asp-for="PickUpTime">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-outline-dark">Hemen Kirala</button>
+        </div>
+    </form>
+</div>

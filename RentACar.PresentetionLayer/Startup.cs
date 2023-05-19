@@ -9,6 +9,8 @@ using RentACar.BusinessLayer.Concrete;
 using RentACar.DataAccessLayer.Abstract;
 using RentACar.DataAccessLayer.Concrete;
 using RentACar.DataAccessLayer.EntityFramework;
+using RentACar.EntityLayer.Concrete;
+using RentACar.PresentetionLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +32,42 @@ namespace RentACar.PresentetionLayer
         {
             services.AddDbContext<Context>();
 
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomeIdentityValidator>();
             services.AddScoped<IAboutUsDal, EfAboutUsDal>();
             services.AddScoped<IAboutUsService,AboutUsManager>();
+
+            services.AddScoped<IBlogDal,EfBlogDal>();
+            services.AddScoped<IBlogService,BlogManager>();
+
+            services.AddScoped<IBlogCommentDal,EfBlogCommentDal>();
+            services.AddScoped<IBlogCommentService,BlogCommentManager>();
+
+            services.AddScoped<IContactMeDal,EfContactMeDal>();
+            services.AddScoped<IContactMeService,ContactMeManager>();
+
+            services.AddScoped<IHeaderDal,EfHeaderDal>();
+            services.AddScoped<IHeaderService,HeaderManager>();
+
+            services.AddScoped<IReferenceService,ReferenceManager>();
+            services.AddScoped<IReferenceDal,EfReferenceDal>();
+
+            services.AddScoped<IReserveDal,EfReserveDal>();
+            services.AddScoped<IReserveService,ReserveManager>();
+
+            services.AddScoped<IReserveServiceDal,EfReserveServiceDal>();
+            services.AddScoped<IReserveServiceService,ReserveServiceManager>();
+
+            services.AddScoped<IServiceService,ServiceManager>();
+            services.AddScoped<IServiceDal,EfServiceDal>();
+
+            services.AddScoped<IStatisticDal,EfStatisticDal>();
+            services.AddScoped<IStatisticService,StatisticManager>();
+
+            services.AddScoped<ITagCloudDal,EfTagCloudDal>();
+            services.AddScoped<ITagCloudService,TagCloudManager>();
+
+            services.AddScoped<IReserveDal, EfReserveDal>();
+            services.AddScoped<IReserveService, ReserveManager>();
             services.AddControllersWithViews();
         }
 

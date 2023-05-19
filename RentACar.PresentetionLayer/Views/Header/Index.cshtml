@@ -1,0 +1,61 @@
+﻿@model List<RentACar.EntityLayer.Concrete.Header>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayoutContoller/Index.cshtml";
+}
+
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+    <thead class="text-dark fs-12">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Başlık
+            </th>
+            <th>
+                İçerik
+            </th>
+            <th>
+                Resim Url
+            </th>
+            <th>
+                Video
+            </th>
+            <th>
+                Güncelle
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">@item.HeaderID</h6></td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.HeaderTitle</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="mb-0 fw-normal">@item.HeaderDescription</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="mb-0 fw-normal">@item.HeaderImageUrl</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">@item.HeaderVideo</p>
+                </td>
+                <td>
+                    <a href="/Header/UpdateHeader/@item.HeaderID" class="btn btn-outline-warning">Güncelle</a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+
+</table>
+
+
