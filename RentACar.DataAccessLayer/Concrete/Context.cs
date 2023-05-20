@@ -28,5 +28,11 @@ namespace RentACar.DataAccessLayer.Concrete
         public DbSet<Service> Services { get; set; }
         public DbSet<Statistic> Statistics { get; set; }
         public DbSet<TagCloud> TagClouds { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<CarBrand> CarBrands { get; set; }
+        public DbSet<CarFeature> CarFeatures { get; set; }
+        public DbSet<CarTransmission> CarTransmission { get; set; }
+        public DbSet<CarWithFeature> CarWithFeatures { get; set; }
+        public DbSet<CarRegister> CarRegisters { get; set; }
     }
 }

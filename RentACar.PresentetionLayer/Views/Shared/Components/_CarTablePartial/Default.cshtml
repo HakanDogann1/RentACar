@@ -1,0 +1,31 @@
+﻿@model List<RentACar.EntityLayer.Concrete.Car>
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-xl-3">
+
+            <div class="card overflow-hidden rounded-2">
+
+                <div class="position-relative">
+                    <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0" alt="..."></a>
+
+                    <div class="card-body pt-3 p-4">
+                        <h6 class="fw-semibold fs-4">@item.CarModel</h6>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h6 class="fw-semibold fs-4 mb-0">@item.CarPrice ₺</h6>
+                           
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    }
+   
+</div>

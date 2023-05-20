@@ -1,0 +1,70 @@
+﻿@using RentACar.EntityLayer.Concrete
+@model List<CarFeature>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayoutContoller/Index.cshtml";
+}
+
+
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+    <thead class="text-dark fs-12">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Marka
+            </th>
+            <th>
+                Durum
+            </th>
+            <th>
+                Aktif Yap
+            </th>
+            <th>
+                Pasif Yap
+            </th>
+            <th>
+                Güncelle
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">@item.CarFeatureID</h6></td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.CarFeatureID</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-primary rounded-3 fw-semibold">Durum</span>
+                    </div>
+                </td>
+
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">Aktif Yap</p>
+                </td>
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">Pasif Yap</p>
+                </td>
+                <td>
+                    <a href="/CarFeature/UpdateCarFeature/@item.CarFeatureID" class="btn btn-outline-warning">Güncelle</a>
+                </td>
+
+            </tr>
+        }
+
+
+    </tbody>
+
+
+</table>
+<div style="height:200px;"><a href="/CarFeature/AddCarFeature/" class="btn btn-outline-success">Ekle</a></div>
+
+

@@ -1,0 +1,57 @@
+﻿@model RentACar.EntityLayer.Concrete.Car
+@{
+    ViewData["Title"] = "AddCar";
+    Layout = "~/Views/AdminLayoutContoller/Index.cshtml";
+}
+
+<br />
+<br />
+<br />
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Marka</label>
+               @Html.DropDownListFor(x=>x.CarBrandID ,(List<SelectListItem>)ViewBag.carWithBrand, new{@class="form-control"})
+               
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Model</label>
+                <input type="text" class="form-control" asp-for="CarModel">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Kilometre</label>
+                <input type="text" class="form-control" asp-for="CarMillage">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Vites</label>
+                @Html.DropDownListFor(x=>x.CarBrandID ,(List<SelectListItem>)ViewBag.carWithTransmission, new{@class="form-control"})
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Koltuk Sayısı</label>
+                <input type="text" class="form-control" asp-for="CarSeats">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Bagaj Hacmi</label>
+                <input type="text" class="form-control" asp-for="CarLuggage">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Yakıt</label>
+                <input type="text" class="form-control" asp-for="CarFuel">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Resim Url</label>
+                <input type="text" class="form-control" asp-for="CarImageUrl">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fiyat</label>
+                <input type="text" class="form-control" asp-for="CarPrice">
+            </div>
+            <button type="submit" class="btn btn-primary">Ekle</button>
+        </form>
+    </div>
+</div>
+
+
+

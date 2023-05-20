@@ -1,0 +1,24 @@
+﻿@model RentACar.EntityLayer.Concrete.CarFeature
+@{
+    ViewData["Title"] = "AddCarFeature";
+    Layout = "~/Views/AdminLayoutContoller/Index.cshtml";
+}
+
+
+<br />
+<br />
+<br />
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Başlık</label>
+                <input type="text" class="form-control" asp-for="CarFeatureName">
+
+            </div>
+            <button type="submit" class="btn btn-primary">Ekle</button>
+        </form>
+    </div>
+</div>
+
+

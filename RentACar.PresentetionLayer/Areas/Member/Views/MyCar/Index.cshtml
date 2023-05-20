@@ -1,0 +1,104 @@
+﻿@model List<RentACar.EntityLayer.Concrete.CarRegister>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Member/Views/MemberLayout/Index.cshtml";
+}
+
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+    <thead class="text-dark fs-12">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Marka
+            </th>
+            <th>
+                Model
+            </th>
+            <th>
+                Kilometre
+            </th>
+            <th>
+                Vites
+            </th>
+            <th>
+                Koltuk Sayısı
+            </th>
+            <th>
+                Bagaj Hacmi
+            </th>
+            <th>
+                Yakıt
+            </th>
+            <th>
+                Resim URl
+            </th>
+            <th>
+                Fiyat
+            </th>
+           @* <th>
+                Sil
+            </th>*@
+            <th>
+                Detay
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">@item.CarID</h6></td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.Car.CarBrand.CarBrandName</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.Car.CarModel</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.Car.CarMillage</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.Car.CarTransmission.CarTransmissionName</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.Car.CarSeats</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-primary rounded-3 fw-semibold">@item.Car.CarLuggage LT</span>
+                    </div>
+                </td>
+
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">@item.Car.CarFuel</p>
+                </td>
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">@item.Car.CarImageUrl</p>
+                </td>
+                <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">@item.Car.CarPrice ₺</p>
+                </td>
+               @* <td class="border-bottom-0">
+                    <a href="/Car/DeleteCar/@item.CarID" class="btn btn-outline-danger">Sil</a>
+                </td>*@
+                <td>
+                    <a href="/Car/UpdateCar/@item.CarID" class="btn btn-outline-warning">Detay</a>
+                </td>
+
+            </tr>
+        }
+
+
+    </tbody>
+
+
+</table>
+
+
+

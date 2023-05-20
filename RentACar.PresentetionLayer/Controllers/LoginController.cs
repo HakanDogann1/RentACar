@@ -26,7 +26,7 @@ namespace RentACar.PresentetionLayer.Controllers
             var values =await _signInManager.PasswordSignInAsync(model.UserName,model.Password,false,false);
             if (values.Succeeded)
             {
-                return RedirectToAction("Index","AboutUs");
+                return RedirectToAction("Index","MyCar",new {area="Member"});
             }
             return View();
         }

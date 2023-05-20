@@ -68,6 +68,18 @@ namespace RentACar.PresentetionLayer
 
             services.AddScoped<IReserveDal, EfReserveDal>();
             services.AddScoped<IReserveService, ReserveManager>();
+
+            services.AddScoped<ICarBrandService,CarBrandManager>();
+            services.AddScoped<ICarBrandDal, EfCarBrandDal>();
+
+            services.AddScoped<ICarDal, EfCarDal>();
+            services.AddScoped<ICarService,CarManager>();
+
+            services.AddScoped<ICarTransmissionDal, EfCarTransmissionDal>();
+            services.AddScoped<ICarTransmissionService, CarTransmissionManager>();
+
+            services.AddScoped<ICarRegisterDal, EfCarRegisterDal>();
+            services.AddScoped<ICarRegisterService, CarRegisterManager>();
             services.AddControllersWithViews();
         }
 
@@ -88,7 +100,7 @@ namespace RentACar.PresentetionLayer
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -96,6 +108,13 @@ namespace RentACar.PresentetionLayer
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
             });
         }
     }

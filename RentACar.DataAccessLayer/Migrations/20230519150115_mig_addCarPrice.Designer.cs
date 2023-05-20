@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RentACar.DataAccessLayer.Concrete;
 
 namespace RentACar.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230519150115_mig_addCarPrice")]
+    partial class mig_addCarPrice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -409,28 +411,6 @@ namespace RentACar.DataAccessLayer.Migrations
                     b.ToTable("CarFeatures");
                 });
 
-            modelBuilder.Entity("RentACar.EntityLayer.Concrete.CarRegister", b =>
-                {
-                    b.Property<int>("CarRegisterID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AppUserID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CarID")
-                        .HasColumnType("int");
-
-                    b.HasKey("CarRegisterID");
-
-                    b.HasIndex("AppUserID");
-
-                    b.HasIndex("CarID");
-
-                    b.ToTable("CarRegisters");
-                });
-
             modelBuilder.Entity("RentACar.EntityLayer.Concrete.CarTransmission", b =>
                 {
                     b.Property<int>("CarTransmissionID")
@@ -731,25 +711,6 @@ namespace RentACar.DataAccessLayer.Migrations
                     b.Navigation("CarBrand");
 
                     b.Navigation("CarTransmission");
-                });
-
-            modelBuilder.Entity("RentACar.EntityLayer.Concrete.CarRegister", b =>
-                {
-                    b.HasOne("RentACar.EntityLayer.Concrete.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("RentACar.EntityLayer.Concrete.Car", "Car")
-                        .WithMany()
-                        .HasForeignKey("CarID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-
-                    b.Navigation("Car");
                 });
 
             modelBuilder.Entity("RentACar.EntityLayer.Concrete.CarWithFeature", b =>

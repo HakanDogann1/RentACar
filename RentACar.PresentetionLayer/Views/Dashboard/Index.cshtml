@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayoutContoller/Index.cshtml";
+}
+
+<div class="row">
+
+  @await Component.InvokeAsync("_SalesOverviewPartial")
+    <div class="col-lg-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Yearly Breakup -->
+                @await Component.InvokeAsync("_YearlyBreakupPartial")
+            </div>
+            <div class="col-lg-12">
+                <!-- Monthly Earnings -->
+                @await Component.InvokeAsync("_CarCountPartial")
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    @await Component.InvokeAsync("_ReserveTablePartial")
+    @await Component.InvokeAsync("_BlogTablePartial")
+</div>
+@await Component.InvokeAsync("_CarTablePartial")

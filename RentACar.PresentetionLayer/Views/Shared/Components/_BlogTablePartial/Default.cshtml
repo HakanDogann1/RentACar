@@ -1,0 +1,53 @@
+﻿@model List<RentACar.EntityLayer.Concrete.Blog>
+<div class="col-lg-8 d-flex align-items-stretch">
+    <div class="card w-100">
+        <div class="card-body p-4">
+            <h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
+            <div class="table-responsive">
+                <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                        <tr>
+                            <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">Başlık</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">İçerik</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">Tarih</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">Siteye Git</h6>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-1">@item.BlogTitle</h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <p class="mb-0 fw-normal">@item.BlogDescription</p>
+                                </td>
+
+                                <td class="border-bottom-0">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="badge bg-primary rounded-3 fw-semibold">@item.BlogDate.ToShortDateString()</span>
+                                    </div>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0 fs-4"><a href="#" class="btn btn-outline-dark">Siteye Git</a></h6>
+                                </td>
+                            </tr>
+                        }
+                        
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
