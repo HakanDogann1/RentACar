@@ -11,6 +11,8 @@ namespace RentACar.DataAccessLayer.Abstract
     {
         List<Car> GetBrandAndTransmission();
         List<Car> GetLAs4Car();
+		List<Car> GetCarWithBrand();
+		Car GetCarFeature(int id);
 
-    }
+	}
 }

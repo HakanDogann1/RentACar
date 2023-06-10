@@ -11,5 +11,7 @@ namespace RentACar.BusinessLayer.Abstract
     {
         List<Car> TGetBrandAndTransmission();
         List<Car> TGetLAs4Car();
+        List<Car> TGetCarWithBrand();
+        Car TGetCarFeature(int id);
     }
 }

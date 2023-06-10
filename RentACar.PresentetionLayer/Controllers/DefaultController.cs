@@ -7,13 +7,44 @@ namespace RentACar.PresentetionLayer.Controllers
     public class DefaultController : Controller
     {
         private readonly IReserveService _reserveService;
+        private readonly ICarService _carService;
 
-        public DefaultController(IReserveService reserveService)
+		public DefaultController(IReserveService reserveService, ICarService carService)
+		{
+			_reserveService = reserveService;
+			_carService = carService;
+		}
+
+		public IActionResult Index()
         {
-            _reserveService = reserveService;
+            return View();
         }
-
-        public IActionResult Index()
+        public IActionResult About()
+        {
+            return View();
+        }
+        public IActionResult Service()
+        {
+            return View();
+        }
+        public IActionResult Pricing()
+        {
+            return View();
+        }
+        public IActionResult CarList()
+        {
+            return View();
+        }
+        public IActionResult CarDetail(int id)
+        {
+            var value = _carService.TGetCarFeature(id);
+            return View(value);
+        }
+		public IActionResult Blog()
+		{
+			return View();
+		}
+        public IActionResult Contact()
         {
             return View();
         }

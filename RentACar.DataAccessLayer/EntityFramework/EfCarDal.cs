@@ -19,7 +19,19 @@ namespace RentACar.DataAccessLayer.EntityFramework
             return context.Cars.Include(x=>x.CarBrand).Include(y=>y.CarTransmission).ToList();
         }
 
-        public List<Car> GetLAs4Car()
+		public Car GetCarFeature(int id)
+		{
+			using var context = new Context();
+            return context.Cars.Where(t=>t.CarID==id).Include(x => x.CarTransmission).Include(y => y.CarBrand).FirstOrDefault();
+		}
+
+		public List<Car> GetCarWithBrand()
+		{
+			using var context = new Context();
+            return context.Cars.Include(x=>x.CarBrand).ToList();
+		}
+
+		public List<Car> GetLAs4Car()
         {
             Context context= new Context();
             return context.Cars.OrderByDescending(x=>x.CarID).Take(4).ToList();

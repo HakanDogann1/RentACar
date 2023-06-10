@@ -1,0 +1,41 @@
+﻿@model List<RentACar.EntityLayer.Concrete.AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayoutContoller/Index.cshtml";
+}
+
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+    <thead class="text-dark fs-12">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Rol Adı
+            </th>
+            <th>
+                Rol Ata
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">@item.Id</h6></td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">@item.UserName</h6>
+                </td>
+                <td class="border-bottom-0">
+                    <a href="/RoleAssign/UserRoleAssign/@item.Id" class="btn btn-outline-warning">Rol Ata</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/RoleAssign/AddRoleAssign/" class="btn btn-outline-success">Rol Ekle</a>
+
